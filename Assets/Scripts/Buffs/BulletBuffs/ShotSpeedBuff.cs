@@ -5,9 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Powerups/BulletBuffs/ShotSpeedBuff")]
 public class ShotSpeedBuff : PowerupEffect
 {
-    public int amount;
+    public int percentage;
+    public BulletData_SO bulletData;
     public override void Apply(GameObject target)
     {
-        target.GetComponentInChildren<Shooting>().UpdateShotSpeedBuff(amount);
+        bulletData.UpdateShotSpeedBuff((float) (percentage + 100) / 100);
     }
 }
