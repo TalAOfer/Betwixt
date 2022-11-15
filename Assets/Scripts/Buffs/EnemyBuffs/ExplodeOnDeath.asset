@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daca42c40dfc6444da8ec12c794ed39a, type: 3}
+  m_Name: ExplodeOnDeath
+  m_EditorClassIdentifier: 
+  OnEnemyAddExplodeOnDeath: {fileID: 11400000, guid: aa0a2405a5b3a89408953479564299dd, type: 2}

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ShotSpeedBuff : PowerupEffect
 {
     public int percentage;
-    public BulletData_SO bulletData;
+    public InterimBulletData bulletData;
     public override void Apply(GameObject target)
     {
         bulletData.UpdateShotSpeedBuff((float) (percentage + 100) / 100);
