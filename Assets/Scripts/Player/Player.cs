@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     public GameEvent OnMoveInput;
     public GameEvent OnCursorInput;
     public GameEvent OnAttackInput;
+
+    public GameEvent OnUpdatePointingAngle;
     public GameEvent OnFlipPlayerSprite;
     
     private Vector2 moveInput;
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
     private void OnMouseMove(InputAction.CallbackContext context)
     {
         mousePosInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
+        OnCursorInput.Raise(mousePosInput);
     }
 
     private void OnAttackPressed(InputAction.CallbackContext context)
@@ -118,7 +121,7 @@ public class Player : MonoBehaviour
         //Rotate Gun
         Vector2 aimingDirection = mousePosInput - rb.position;
         float angle = Mathf.Atan2(aimingDirection.y, aimingDirection.x) * Mathf.Rad2Deg;
-        OnCursorInput.Raise(this, angle);
+        OnUpdatePointingAngle.Raise(this, angle);
     }
 
     public void UpdateMovementSpeed(float amount)

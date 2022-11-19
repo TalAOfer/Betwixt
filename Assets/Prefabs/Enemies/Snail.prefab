@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 1421104251788437110}
   - component: {fileID: 2981421762486162618}
   - component: {fileID: 1126092248263429625}
+  - component: {fileID: -3609836935865081084}
+  - component: {fileID: 6077375076597857477}
+  - component: {fileID: -6631532688242664720}
   - component: {fileID: 4175688813646091385}
-  - component: {fileID: 8499422859373046711}
   - component: {fileID: 1885450981}
   m_Layer: 8
   m_Name: Snail
@@ -175,6 +177,43 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &-3609836935865081084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981421762486162614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d680d507f493ae4458ed442be410f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6077375076597857477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981421762486162614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 587ee3bd969c7ad44b8f8d24a9db72ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletData: {fileID: 11400000, guid: 400dca0090c33fd4384778a3e527b2b8, type: 2}
+--- !u!114 &-6631532688242664720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981421762486162614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b538b8a207e3b43419a54c6c43ebeafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4175688813646091385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,18 +227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletExplosion: {fileID: 7152018202828972524, guid: 4eeec7ddf70f3c948a40d820e8356ca2, type: 3}
---- !u!114 &8499422859373046711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2981421762486162614}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675582c38cfd0dd4aa7701fb9913ece9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1885450981
 Animator:
   serializedVersion: 4

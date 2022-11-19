@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BulletExplosion : MonoBehaviour
 {
-    public int NumberOfProjectiles = 3;
     public GameObject bulletPrefab;
     private float now;
 
@@ -13,12 +12,12 @@ public class BulletExplosion : MonoBehaviour
         now = Time.time;
     }
 
-    public void Init(Vector3 position, GameObject shooter)
+    public void Init(Vector3 position, GameObject shooter, int numberOfProjectiles)
     {
-        float angleStep = 360 / NumberOfProjectiles;
+        float angleStep = 360 / numberOfProjectiles;
         float centeringOffset = (180) - (angleStep / 2);
 
-        for (int i = 0; i < NumberOfProjectiles; i++)
+        for (int i = 0; i < numberOfProjectiles; i++)
         {
             float currentBulletAngle = angleStep * i;
 

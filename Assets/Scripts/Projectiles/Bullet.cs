@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
 {
     public InterimBulletData BulletData;
     private float now;
+    //private int enemiesHit = 0;
 
     private Rigidbody2D rb;
     private void OnEnable()
     {
         now = Time.time;
+        transform.localScale = Vector3.one * BulletData.size;
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * BulletData.shotSpeed, ForceMode2D.Impulse);
     }
@@ -25,13 +27,14 @@ public class Bullet : MonoBehaviour
        rb.velocity = Vector2.zero;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && !BulletData.isPiercing)
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(BulletData.damage);
+            Pooler.Despawn(gameObject);
         }
-        Pooler.Despawn(gameObject);
+
+       
     }
 
     private void Update()
@@ -41,4 +44,7 @@ public class Bullet : MonoBehaviour
             Pooler.Despawn(gameObject);
         }
     }
+
+
+
 }

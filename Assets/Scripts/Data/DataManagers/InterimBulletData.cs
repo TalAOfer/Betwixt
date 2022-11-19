@@ -8,12 +8,18 @@ public class InterimBulletData : ScriptableObject
     public float shotSpeed;
     public float range;
     public float damage;
+    public bool isPiercing;
+    public bool isBurning;
+    public float size;
 
     public void Init(float shotSpeed, float range, float damage)
     {
         this.shotSpeed = shotSpeed;
         this.range = range;
         this.damage = damage;
+        this.isPiercing = false;
+        this.isBurning = false;
+        this.size = 1;
     }
     public void UpdateShotSpeedBuff(float amount)
     {
@@ -28,5 +34,10 @@ public class InterimBulletData : ScriptableObject
     public void UpdateDamage(float amount)
     {
         damage *= amount;
+    }
+
+    public void UpdateSize(float amount)
+    {
+        size *= amount;
     }
 }

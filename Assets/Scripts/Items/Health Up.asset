@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fff23a5e584884fa6e8b624d35ffbd, type: 3}
+  m_Name: Health Up
+  m_EditorClassIdentifier: 
+  powerupEffects:
+  - {fileID: 11400000, guid: 6d54b5d9160305a49a72474b7bc534b9, type: 2}
+  itemName: HP Up
+  icon: {fileID: -1781916437, guid: 4238b9a769c825e4e854a13b876602fe, type: 3}
+  Description: Max Health +1

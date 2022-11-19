@@ -13,7 +13,6 @@ public class ExplodeOnDeath : MonoBehaviour
     {
         enemy = GetComponent<Enemy>();
         once = true;
-        Debug.Log(enemy.isDead);
     }
 
     private void Update()
@@ -21,9 +20,8 @@ public class ExplodeOnDeath : MonoBehaviour
         if (enemy.isDead && once)
         {
             bulletExplosionInstance = Pooler.Spawn(bulletExplosion, transform.position, transform.rotation);
-            bulletExplosionInstance.GetComponent<BulletExplosion>().Init(transform.position, transform.gameObject);
+            bulletExplosionInstance.GetComponent<BulletExplosion>().Init(transform.position, transform.gameObject, 3);
             once = false;
-            Debug.Log("Happened");
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -55,7 +56,10 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector3.MoveTowards(transform.position, playerPosition, movementSpeed * 0.01f);
+        if (!isDead)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, playerPosition, movementSpeed * 0.01f);
+        }
         
         if (isFacingRight && playerPosition.x < transform.position.x)
         {
@@ -97,7 +101,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         Pooler.Despawn(gameObject);
     }
 }

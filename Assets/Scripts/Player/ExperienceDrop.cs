@@ -9,7 +9,7 @@ public class ExperienceDrop : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerLeveling>().TakeExperience(experienceAmount);
+            collision.gameObject.GetComponentInParent<PlayerLeveling>().TakeExperience(experienceAmount);
             Destroy(gameObject);
         }
     }

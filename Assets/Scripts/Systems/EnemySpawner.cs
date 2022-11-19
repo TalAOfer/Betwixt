@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemy1;
+    [SerializeField] private GameObject enemy2;
     private float lastEnemySpawn;
     private float spawnDelay = 7;
+    public List<Transform> enemyBase;
+    public float minutesToWin = 1f;
+    private bool secondEnemy = false;
+    
+    public GameObject YouWin;
+    public GameObject YouLost;
 
     void Start()
     {
-        SpawnEnemies();
+        SpawnEnemies(enemy1, 10);
     }
 
     // Update is called once per frame
@@ -18,20 +25,55 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Time.time > lastEnemySpawn + spawnDelay)
         {
-            SpawnEnemies();
+            SpawnEnemies(enemy1, 5);
+            if (secondEnemy)
+            {
+                SpawnEnemies(enemy2, 3);
+            }
         }
+
+        if (Time.time > 30) 
+        {
+            spawnDelay = 5;
+        }
+
+        if (Time.time > 45)
+        {
+            spawnDelay = 3;
+        }
+
+        if (Time.time > 60)
+        {
+            secondEnemy = true;
+        }
+
+        if (Time.time > 60 * minutesToWin)
+        {
+            YouWin.SetActive(true);
+        };
     }
 
-    private void SpawnEnemies()
+    private void SpawnEnemies(GameObject enemyType, int numOfSpawns)
     {
-        for (int i = 0; i < 5; i++)
+        Vector3 position = GetRandomBase();
+
+        for (int i = 0; i < numOfSpawns; i++)
         {
-            Vector3 position = transform.position;
-            position.x += i * 2;
-            GameObject enemyInstance = Pooler.Spawn(enemy, position, transform.rotation);
+            position.x += i * Random.Range(1,3);
+            GameObject enemyInstance = Pooler.Spawn(enemyType, position, transform.rotation);
             enemyInstance.SetActive(true);
         }
 
         lastEnemySpawn = Time.time;
+    }
+
+    private Vector3 GetRandomBase()
+    {
+        return enemyBase[Random.Range(0, enemyBase.Count)].position;
+    }
+
+    public void EnableYouLost()
+    {
+        YouLost.SetActive(true);
     }
 }
