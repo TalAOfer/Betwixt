@@ -11,14 +11,15 @@ GameObject:
   - component: {fileID: 148220234260480551}
   - component: {fileID: 148220234260480552}
   - component: {fileID: 148220234260480553}
-  - component: {fileID: 4095584085863428330}
+  - component: {fileID: 3129639791468340345}
   - component: {fileID: 148220234260480550}
-  - component: {fileID: 2652083762847046501}
-  - component: {fileID: 7388716634370291096}
+  - component: {fileID: 4095584085863428330}
   - component: {fileID: 9167528535763003993}
   - component: {fileID: 618865517224250476}
   - component: {fileID: 1341421869625426661}
-  - component: {fileID: 3129639791468340345}
+  - component: {fileID: 7388716634370291096}
+  - component: {fileID: 2652083762847046501}
+  - component: {fileID: 6602956791141573049}
   m_Layer: 8
   m_Name: SerpentFly
   m_TagString: Enemy
@@ -119,19 +120,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53602505, y: 0.47657633}
   m_EdgeRadius: 0
---- !u!114 &4095584085863428330
-MonoBehaviour:
+--- !u!95 &3129639791468340345
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148220234260480554}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 478b4a12c25c64c4e983bb59af043848, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyStatManager: {fileID: 11400000, guid: 12f319bc19b11d7488dbb8d03d5f44bc, type: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf2aaefa70922544d9171256fa2bcbfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &148220234260480550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,7 +157,7 @@ MonoBehaviour:
   enemyStatManager: {fileID: 11400000, guid: 12f319bc19b11d7488dbb8d03d5f44bc, type: 2}
   enemyData: {fileID: 11400000, guid: 6874e0ff5b841424484caac17460ec5b, type: 2}
   isDead: 0
---- !u!114 &2652083762847046501
+--- !u!114 &4095584085863428330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,37 +166,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 148220234260480554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2087eb1c8d9093c47bb0f04a270fa87a, type: 3}
+  m_Script: {fileID: 11500000, guid: 478b4a12c25c64c4e983bb59af043848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 21879a912acfa4740abf09217be5ac64, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 148220234260480550}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: UpdatePlayerPosition
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7388716634370291096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148220234260480554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d680d507f493ae4458ed442be410f78a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  enemyStatManager: {fileID: 11400000, guid: 12f319bc19b11d7488dbb8d03d5f44bc, type: 2}
 --- !u!114 &9167528535763003993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,23 +208,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletExplosion: {fileID: 7152018202828972524, guid: 4eeec7ddf70f3c948a40d820e8356ca2, type: 3}
---- !u!95 &3129639791468340345
-Animator:
-  serializedVersion: 4
+--- !u!114 &7388716634370291096
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148220234260480554}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cf2aaefa70922544d9171256fa2bcbfa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d680d507f493ae4458ed442be410f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2652083762847046501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148220234260480554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2087eb1c8d9093c47bb0f04a270fa87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 21879a912acfa4740abf09217be5ac64, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 148220234260480550}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: UpdatePlayerPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6602956791141573049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148220234260480554}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2087eb1c8d9093c47bb0f04a270fa87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 7a99cfaffb2e5194fa8e251ff6209cde, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6244592740781733241, guid: f52e1fe6100d91e4bbd66f019e557f1a, type: 3}
+        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+        m_MethodName: KillSelf
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1000
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

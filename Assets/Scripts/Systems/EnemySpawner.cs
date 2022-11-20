@@ -6,18 +6,24 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject enemy1;
     [SerializeField] private GameObject enemy2;
+    [SerializeField] private int enemy1SpawnRate = 5;
+    [SerializeField] private int enemy2SpawnRate = 3;
+
     private float lastEnemySpawn;
     private float spawnDelay = 7;
     public List<Transform> enemyBase;
     public float minutesToWin = 1f;
     private bool secondEnemy = false;
     
+    
     public GameObject YouWin;
     public GameObject YouLost;
 
+    public GameEvent OnPlayerWin;
+
     void Start()
     {
-        SpawnEnemies(enemy1, 10);
+        SpawnEnemies(enemy1, enemy1SpawnRate * 2);
     }
 
     // Update is called once per frame
@@ -25,10 +31,10 @@ public class EnemySpawner : MonoBehaviour
     {
         if (Time.time > lastEnemySpawn + spawnDelay)
         {
-            SpawnEnemies(enemy1, 5);
+            SpawnEnemies(enemy1, enemy1SpawnRate);
             if (secondEnemy)
             {
-                SpawnEnemies(enemy2, 3);
+                SpawnEnemies(enemy2, enemy2SpawnRate);
             }
         }
 
@@ -45,10 +51,18 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time > 60)
         {
             secondEnemy = true;
+            spawnDelay = 5;
         }
 
         if (Time.time > 60 * minutesToWin)
         {
+            OnPlayerWin.Raise();
+
+            var foundEnemyObjects = FindObjectsOfType<Enemy>();
+            foreach (Enemy enemy in foundEnemyObjects) {
+                enemy.KillSelf();
+            }
+
             YouWin.SetActive(true);
         };
     }

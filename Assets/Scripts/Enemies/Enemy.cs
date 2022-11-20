@@ -104,4 +104,9 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Pooler.Despawn(gameObject);
     }
+
+    public void KillSelf()
+    {
+        TakeDamage(1000);
+    }
 }

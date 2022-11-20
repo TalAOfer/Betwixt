@@ -4593,6 +4593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy1: {fileID: 148220234260480554, guid: 5c575f52678a26e45be106d1b85fc251, type: 3}
   enemy2: {fileID: 6244592740781733237, guid: f52e1fe6100d91e4bbd66f019e557f1a, type: 3}
+  enemy1SpawnRate: 5
+  enemy2SpawnRate: 3
   enemyBase:
   - {fileID: 2036085935}
   - {fileID: 169448236}
@@ -4600,9 +4602,10 @@ MonoBehaviour:
   - {fileID: 21893928}
   - {fileID: 1454682183}
   - {fileID: 1895556884}
-  minutesToWin: 1.5
+  minutesToWin: 0.5
   YouWin: {fileID: 1750840452}
   YouLost: {fileID: 1806018387}
+  OnPlayerWin: {fileID: 11400000, guid: 7a99cfaffb2e5194fa8e251ff6209cde, type: 2}
 --- !u!114 &1241885493
 MonoBehaviour:
   m_ObjectHideFlags: 0
