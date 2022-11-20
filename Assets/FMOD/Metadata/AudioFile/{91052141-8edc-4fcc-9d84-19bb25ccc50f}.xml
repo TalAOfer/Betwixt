@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{91052141-8edc-4fcc-9d84-19bb25ccc50f}">
+		<property name="assetPath">
+			<value>LD48_Shoot_.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.6649886621315193</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02a3857f-0185-422b-bef6-45ecf0b76ac6}</destination>
+		</relationship>
+	</object>
+</objects>

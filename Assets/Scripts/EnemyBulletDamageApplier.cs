@@ -17,6 +17,7 @@ public class EnemyBulletDamageApplier : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Bullet_hit",GetComponent<Transform>().position);  
             _enemy.TakeDamage(BulletData.damage);
             if (BulletData.isBurning)
             {

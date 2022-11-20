@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{13247f88-fef2-416a-856d-74b0d85856bc}">
+		<property name="assetPath">
+			<value>RoR.ogg</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>133</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02a3857f-0185-422b-bef6-45ecf0b76ac6}</destination>
+		</relationship>
+	</object>
+</objects>

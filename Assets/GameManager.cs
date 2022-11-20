@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public EnemyStatManager enemyStatManager;
     void Start()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Music",GetComponent<Transform>().position);  
         InterimBulletData.Init(bulletDefaultData.shotSpeed, bulletDefaultData.range, bulletDefaultData.damage);
         enemyStatManager.Init(1, false, false);
     }

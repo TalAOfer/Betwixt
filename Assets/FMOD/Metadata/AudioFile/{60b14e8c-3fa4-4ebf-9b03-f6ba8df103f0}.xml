@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{60b14e8c-3fa4-4ebf-9b03-f6ba8df103f0}">
+		<property name="assetPath">
+			<value>LD48_Bullet_hit_2.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.62498866213151927</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{02a3857f-0185-422b-bef6-45ecf0b76ac6}</destination>
+		</relationship>
+	</object>
+</objects>

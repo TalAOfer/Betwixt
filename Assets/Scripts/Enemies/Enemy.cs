@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion",GetComponent<Transform>().position);  
         Pooler.Spawn(experienceDrop, transform.position, transform.rotation);
         StartCoroutine(Destroy());
     }
