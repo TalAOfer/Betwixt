@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59fff23a5e584884fa6e8b624d35ffbd, type: 3}
-  m_Name: Lipring
+  m_Name: Burn Away
   m_EditorClassIdentifier: 
   powerupEffects:
-  - {fileID: 11400000, guid: e69e34b0e2c08094d9e9cf6d31b11d72, type: 2}
-  itemName: Lipring
-  icon: {fileID: 21300000, guid: dde35150d65b5834390cb85246e7523d, type: 3}
-  Description: 'You got a pirecing!
+  - {fileID: 11400000, guid: 0eb9ed062c8131843adc32195f73d6b7, type: 2}
+  - {fileID: 11400000, guid: e052e6082a8a62d409689d2e7e705485, type: 2}
+  itemName: Burn Away
+  icon: {fileID: 21300000, guid: cfb5259d983f8054f9703bc70102b5ff, type: 3}
+  Description: 'Bullets Inflict Burn
 
-    Bullets now pierce 1 enemy'
+    Range +20%  '

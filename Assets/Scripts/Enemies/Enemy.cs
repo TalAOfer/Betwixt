@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     private float movementSpeed;
     private Vector3 lastPosition;
     private bool isFacingRight = true;
+    private bool didWin = false;
 
     private Vector3 playerPosition;
     public bool isDead = false;
@@ -95,7 +96,11 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion",GetComponent<Transform>().position);  
+        if (!didWin)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion", GetComponent<Transform>().position);
+        }
+
         Pooler.Spawn(experienceDrop, transform.position, transform.rotation);
         StartCoroutine(Destroy());
     }
@@ -108,6 +113,7 @@ public class Enemy : MonoBehaviour
 
     public void KillSelf()
     {
+        didWin = true;
         TakeDamage(1000);
     }
 }

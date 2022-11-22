@@ -12,14 +12,9 @@ public class EnemySpawner : MonoBehaviour
     private float lastEnemySpawn;
     private float spawnDelay = 7;
     public List<Transform> enemyBase;
-    public float minutesToWin = 1f;
+    
     private bool secondEnemy = false;
     
-    
-    public GameObject YouWin;
-    public GameObject YouLost;
-
-    public GameEvent OnPlayerWin;
 
     void Start()
     {
@@ -53,18 +48,6 @@ public class EnemySpawner : MonoBehaviour
             secondEnemy = true;
             spawnDelay = 5;
         }
-
-        if (Time.time > 60 * minutesToWin)
-        {
-            OnPlayerWin.Raise();
-
-            var foundEnemyObjects = FindObjectsOfType<Enemy>();
-            foreach (Enemy enemy in foundEnemyObjects) {
-                enemy.KillSelf();
-            }
-
-            YouWin.SetActive(true);
-        };
     }
 
     private void SpawnEnemies(GameObject enemyType, int numOfSpawns)
@@ -84,10 +67,5 @@ public class EnemySpawner : MonoBehaviour
     private Vector3 GetRandomBase()
     {
         return enemyBase[Random.Range(0, enemyBase.Count)].position;
-    }
-
-    public void EnableYouLost()
-    {
-        YouLost.SetActive(true);
     }
 }

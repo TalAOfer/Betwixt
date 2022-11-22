@@ -6,20 +6,17 @@ public class Bullet : MonoBehaviour
 {
     public InterimBulletData BulletData;
     private float now;
-    //private int enemiesHit = 0;
+    
+    private int enemiesHit = 0;
 
     private Rigidbody2D rb;
     private void OnEnable()
     {
         now = Time.time;
+        enemiesHit = 0;
         transform.localScale = Vector3.one * BulletData.size;
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * BulletData.shotSpeed, ForceMode2D.Impulse);
-    }
-
-    public void Initialize(float shotSpeed)
-    {
-        Debug.Log(shotSpeed);
     }
 
     private void OnDisable()
@@ -29,9 +26,19 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && !BulletData.isPiercing)
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Pooler.Despawn(gameObject);
+            if (!BulletData.isPiercing)
+            {
+                Pooler.Despawn(gameObject);
+            } else
+            {
+                enemiesHit++;
+                if (enemiesHit > BulletData.pierceAmount)
+                {
+                    Pooler.Despawn(gameObject);
+                }
+            }
         }
 
        
