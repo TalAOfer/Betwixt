@@ -5,47 +5,53 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Data/Managers/CurrentBulletData")]
 public class InterimBulletData : ScriptableObject
 {
-    public float shotSpeed;
-    public float range;
-    public float damage;
-    public float size;
+    public float shotSpeedBuff;
+    public float rangeBuff;
+    public float damageBuff;
+    public float sizeBuff;
 
     public bool isPiercing;
     public int pierceAmount;
 
     public bool isBurning;
 
-    public void Init(float shotSpeed, float range, float damage)
+    public Bullet_SO currBullet;
+
+    public void Init(Bullet_SO bullet_so)
     {
-        this.shotSpeed = shotSpeed;
-        this.range = range;
-        this.damage = damage;
-        this.size = 1;
+        currBullet = bullet_so;
 
-        this.isPiercing = false;
-        this.pierceAmount = 2;
+        shotSpeedBuff = 1;
+        rangeBuff = 1;
+        damageBuff = 1;
+        sizeBuff = 1;
 
-        this.isBurning = false;
-        
-        
+        isPiercing = false;
+        pierceAmount = 2;
+        isBurning = false;
+    }
+
+    public void UpdateCurrBullet(Bullet_SO bullet_so)
+    {
+        currBullet = bullet_so;
     }
     public void UpdateShotSpeedBuff(float amount)
     {
-        shotSpeed *= amount;
+        shotSpeedBuff *= amount;
     }
 
     public void UpdateRange(float amount)
     {
-        range *= amount;
+        rangeBuff *= amount;
     }
 
     public void UpdateDamage(float amount)
     {
-        damage *= amount;
+        damageBuff *= amount;
     }
 
     public void UpdateSize(float amount)
     {
-        size *= amount;
+        sizeBuff *= amount;
     }
 }

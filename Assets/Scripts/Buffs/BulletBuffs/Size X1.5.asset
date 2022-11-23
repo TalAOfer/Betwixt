@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Size X1.5
   m_EditorClassIdentifier: 
   percentage: 50
-  bulletData: {fileID: 0}
+  bulletData: {fileID: 11400000, guid: 400dca0090c33fd4384778a3e527b2b8, type: 2}

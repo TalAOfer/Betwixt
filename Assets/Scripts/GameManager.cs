@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public InterimBulletData InterimBulletData;
-    public BulletData_SO bulletDefaultData;
+    public Bullet_SO bulletDefaultData;
     public EnemyStatManager enemyStatManager;
 
     public GameObject YouWin;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Music",GetComponent<Transform>().position);  
-        InterimBulletData.Init(bulletDefaultData.shotSpeed, bulletDefaultData.range, bulletDefaultData.damage);
+        InterimBulletData.Init(bulletDefaultData);
         enemyStatManager.Init(1, false, false);
     }
 

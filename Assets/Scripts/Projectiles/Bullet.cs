@@ -14,9 +14,9 @@ public class Bullet : MonoBehaviour
     {
         now = Time.time;
         enemiesHit = 0;
-        transform.localScale = Vector3.one * BulletData.size;
+        transform.localScale = Vector3.one * BulletData.sizeBuff;
         rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(transform.right * BulletData.shotSpeed, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * (BulletData.currBullet.shotSpeed * BulletData.shotSpeedBuff), ForceMode2D.Impulse);
     }
 
     private void OnDisable()
@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time > now + BulletData.range)
+        if (Time.time > now + BulletData.currBullet.range * BulletData.rangeBuff)
         {
             Pooler.Despawn(gameObject);
         }

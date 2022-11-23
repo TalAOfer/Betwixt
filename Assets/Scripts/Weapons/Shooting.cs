@@ -9,15 +9,13 @@ public class Shooting : MonoBehaviour
     
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform attackPoint;
-    //private float shotSpeedBuffAmount = 0;
+
+    public Weapon_SO currWeapon; 
 
     private float aimingAngle;
 
-    [SerializeField] private int NumberOfProjectiles = 3;
-
-    [Range(0, 360)]
-    [SerializeField] private float SpreadAngle = 20;
+    private float spreadBuff = 0;
+    private int bulletAmountBuff = 0;
 
     public void UpdateAngle(Component sender, object data)
     {
@@ -27,10 +25,10 @@ public class Shooting : MonoBehaviour
     public void Shoot()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Shoot",GetComponent<Transform>().position);  
-        float angleStep = SpreadAngle / NumberOfProjectiles;
-        float centeringOffset = (SpreadAngle / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
+        float angleStep = (currWeapon.spread + spreadBuff) / currWeapon.bulletAmount;
+        float centeringOffset = ((currWeapon.spread + spreadBuff) / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
 
-        for (int i = 0; i < NumberOfProjectiles; i++)
+        for (int i = 0; i < currWeapon.bulletAmount; i++)
         {
             float currentBulletAngle = angleStep * i;
 
@@ -43,15 +41,22 @@ public class Shooting : MonoBehaviour
 
     public void UpdateBulletAmount(int amount)
     {
-        NumberOfProjectiles += amount;
+        bulletAmountBuff += amount;
     }
 
     public void UpdateSpread(int amount)
     {
-        SpreadAngle += amount;
+        spreadBuff += amount;
     }
 
+    public void UpdateWeapon(Weapon_SO newWeapon)
+    {
+        currWeapon = newWeapon;
 
+    }
 
-
+    public void UpdateBulletType(GameObject bulletType)
+    {
+        bulletPrefab = bulletType;
+    }
 }

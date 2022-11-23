@@ -18,10 +18,10 @@ public class EnemyBulletDamageApplier : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet"))
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Bullet_hit",GetComponent<Transform>().position);  
-            _enemy.TakeDamage(BulletData.damage);
+            _enemy.TakeDamage(BulletData.currBullet.damage * BulletData.damageBuff);
             if (BulletData.isBurning)
             {
-                _enemyStates.ApplyBurn((BulletData.damage / 20), 1, 3);
+                _enemyStates.ApplyBurn((BulletData.currBullet.damage * BulletData.damageBuff / 20), 1, 3);
             }
         }
     }

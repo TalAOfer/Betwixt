@@ -11,11 +11,14 @@ public class PlayerHealth : MonoBehaviour
     private int currentHealth;
     private bool isInvincible = false;
     private bool isDead = false;
+    private Animator anim;
 
     [SerializeField] private float hurtCooldown;
 
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         currentHealth = maxHealth;
         OnHealthChange.Raise(this, new int[] { currentHealth, maxHealth });
     }
@@ -29,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (!isInvincible)
         {
+            anim.SetTrigger("hurt");
             currentHealth -= damage;
             OnHealthChange.Raise(this, new int[] {currentHealth, maxHealth}); 
             isInvincible = true;

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Range +20%
   m_EditorClassIdentifier: 
   percentage: 20
-  bulletData: {fileID: 11400000, guid: 6cb60a5ad75c9354bb94aa7d72fa3a12, type: 2}
+  bulletData: {fileID: 11400000, guid: 400dca0090c33fd4384778a3e527b2b8, type: 2}

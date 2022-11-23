@@ -28,8 +28,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] Camera cam;
 
-    public Animator weaponAnim;
-
     private void Awake()
     {
         playerInput = new PlayerInput();
