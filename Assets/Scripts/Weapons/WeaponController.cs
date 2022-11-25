@@ -54,8 +54,8 @@ public class WeaponController : MonoBehaviour
     private void PerformAttack()
     {
         isAttacking= true;
-        OnChangeAttackStatus.Raise(this, true);
-        OnShoot.Raise();
+        OnChangeAttackStatus?.Raise(this, true);
+        OnShoot?.Raise();
         canAttack = false;
         finishAttackTime = Time.time + 0.17f;
         nextAttackTime = Time.time + (attackDelay / (currWeapon.attackSpeed + attackSpeedBuff) );

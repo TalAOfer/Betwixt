@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ChoosePlayerUI : MonoBehaviour
 {
     [SerializeField] Button ChosenPlayerBtn;
+    [SerializeField] PlayerChoices playerChoices;
+
     public List<Player_SO> players = new List<Player_SO>();
     private Player_SO chosenPlayer;
     private Image btnImage;
@@ -20,8 +23,9 @@ public class ChoosePlayerUI : MonoBehaviour
 
     public void UpdateChosenPlayer(int wantedIndex)
     {
-        chosenPlayer = players[currPlayerIndex];
+        chosenPlayer = players[wantedIndex];
         ChosenPlayerBtn.image.sprite = chosenPlayer.icon;
+        playerChoices.chosenPlayer = chosenPlayer;
     }
 
     public void NextPlayer()
@@ -52,5 +56,8 @@ public class ChoosePlayerUI : MonoBehaviour
         UpdateChosenPlayer(currPlayerIndex);
     }
 
-    
+    public void StartGame()
+    {
+        SceneManager.LoadSceneAsync(1);
+    }
 }

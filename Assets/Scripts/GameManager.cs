@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        Pooler.ClearPools();
         FMODUnity.RuntimeManager.PlayOneShot("event:/Music",GetComponent<Transform>().position);  
         InterimBulletData.Init(bulletDefaultData);
         enemyStatManager.Init(1, false, false);

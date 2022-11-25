@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
 
+        coll.enabled = true;
+
         currentHealth = maxHealth;
         movementSpeed = defaultSpeed * enemyStatManager.speedMultiplier;
         
@@ -99,9 +101,9 @@ public class Enemy : MonoBehaviour
         if (!didWin)
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Explosion", GetComponent<Transform>().position);
+            Pooler.Spawn(experienceDrop, transform.position, transform.rotation);
         }
 
-        Pooler.Spawn(experienceDrop, transform.position, transform.rotation);
         StartCoroutine(Destroy());
     }
 

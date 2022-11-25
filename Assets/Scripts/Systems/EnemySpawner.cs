@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnEnemies(enemy1, enemy1SpawnRate * 2);
+          SpawnEnemies(enemy1, enemy1SpawnRate * 2);
     }
 
     // Update is called once per frame

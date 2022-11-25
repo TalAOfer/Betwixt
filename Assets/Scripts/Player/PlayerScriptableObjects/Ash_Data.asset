@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3249701497804797955, guid: 986f69d5e1260b0489b2929e5bc9e159, type: 3}
   icon: {fileID: 1507645927, guid: bf65fd25b2f188d439e6bf2bb3578972, type: 3}
+  overrideAnim: {fileID: 22100000, guid: 47bdcb68991ead049860b3a502665e1d, type: 2}
+  movementSpeed: 3
+  hp: 3
+  hitboxSize: {x: 0.4, y: 0.9}

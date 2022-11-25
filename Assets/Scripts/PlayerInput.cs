@@ -53,6 +53,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""340568e7-6883-4eb4-a9af-477f670ffb3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0352917f-f922-4ea1-af55-ff0fe2978739"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +163,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_MousePos = m_Gameplay.FindAction("MousePos", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -205,6 +226,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_MousePos;
     private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_Escape;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -212,6 +234,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @MousePos => m_Wrapper.m_Gameplay_MousePos;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,6 +253,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Escape.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -243,6 +269,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -252,5 +281,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnMousePos(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

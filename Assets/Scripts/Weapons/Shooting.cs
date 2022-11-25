@@ -25,10 +25,10 @@ public class Shooting : MonoBehaviour
     public void Shoot()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Shoot",GetComponent<Transform>().position);  
-        float angleStep = (currWeapon.spread + spreadBuff) / currWeapon.bulletAmount;
-        float centeringOffset = ((currWeapon.spread + spreadBuff) / 2) - (angleStep / 2); //offsets every projectile so the spread is                                                                                                                         //centered on the mouse cursor
+        float angleStep = (currWeapon.spread + spreadBuff) / (currWeapon.bulletAmount + bulletAmountBuff);
+        float centeringOffset = ((currWeapon.spread + spreadBuff) / 2) - (angleStep / 2); //offsets every projectile so the spread is centered on the mouse cursor
 
-        for (int i = 0; i < currWeapon.bulletAmount; i++)
+        for (int i = 0; i < (currWeapon.bulletAmount + bulletAmountBuff); i++)
         {
             float currentBulletAngle = angleStep * i;
 

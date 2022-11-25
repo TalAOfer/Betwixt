@@ -11,15 +11,15 @@ GameObject:
   - component: {fileID: 148220234260480551}
   - component: {fileID: 148220234260480552}
   - component: {fileID: 148220234260480553}
+  - component: {fileID: 976350146}
   - component: {fileID: 3129639791468340345}
   - component: {fileID: 148220234260480550}
   - component: {fileID: 4095584085863428330}
   - component: {fileID: 9167528535763003993}
   - component: {fileID: 618865517224250476}
-  - component: {fileID: 1341421869625426661}
   - component: {fileID: 7388716634370291096}
+  - component: {fileID: 1341421869625426661}
   - component: {fileID: 2652083762847046501}
-  - component: {fileID: 6602956791141573049}
   m_Layer: 8
   m_Name: SerpentFly
   m_TagString: Enemy
@@ -120,6 +120,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.53602505, y: 0.47657633}
   m_EdgeRadius: 0
+--- !u!50 &976350146
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148220234260480554}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!95 &3129639791468340345
 Animator:
   serializedVersion: 4
@@ -195,6 +216,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b538b8a207e3b43419a54c6c43ebeafe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7388716634370291096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148220234260480554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d680d507f493ae4458ed442be410f78a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1341421869625426661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,18 +241,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletExplosion: {fileID: 7152018202828972524, guid: 4eeec7ddf70f3c948a40d820e8356ca2, type: 3}
---- !u!114 &7388716634370291096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148220234260480554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d680d507f493ae4458ed442be410f78a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2652083762847046501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,34 +266,6 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6602956791141573049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 148220234260480554}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2087eb1c8d9093c47bb0f04a270fa87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 7a99cfaffb2e5194fa8e251ff6209cde, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6244592740781733241, guid: f52e1fe6100d91e4bbd66f019e557f1a, type: 3}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: KillSelf
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1000
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

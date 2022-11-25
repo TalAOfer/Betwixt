@@ -55,4 +55,9 @@ public static class Pooler
             go.SetActive(false);
         }
     }
+
+    public static void ClearPools()
+    {
+        pools.Clear();
+    }
 }

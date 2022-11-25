@@ -7,13 +7,17 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     private PlayerInput playerInput;
+
     public GameEvent OnMoveInput;
     public GameEvent OnCursorInput;
     public GameEvent OnAttackInput;
-
+    public GameEvent OnEscapeInput;
     public GameEvent OnUpdatePointingAngle;
     public GameEvent OnFlipPlayerSprite;
-    
+
+    public PlayerChoices playerChoices;
+    private Player_SO player_so;
+
     private Vector2 moveInput;
     private Vector2 mousePosInput;
 
@@ -31,10 +35,17 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         playerInput = new PlayerInput();
+        player_so = playerChoices.chosenPlayer;
+        
         rb = GetComponent<Rigidbody2D>();
+        
         anim = GetComponent<Animator>();
+        anim.runtimeAnimatorController = player_so.overrideAnim;
+        
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
         lastPositionUpdate = 0;
+        moveSpeed = player_so.movementSpeed;
     }
 
     private void OnEnable()
@@ -45,9 +56,12 @@ public class Player : MonoBehaviour
         playerInput.Gameplay.Movement.canceled += OnMove;
 
         playerInput.Gameplay.MousePos.performed += OnMouseMove;
+        playerInput.Gameplay.MousePos.canceled += OnMouseDontMove;
 
         playerInput.Gameplay.Attack.performed += OnAttackPressed;
         playerInput.Gameplay.Attack.canceled += OnCancelAttackPressed;
+
+        playerInput.Gameplay.Escape.performed += OnEscapePressed;
 
     }
 
@@ -66,6 +80,11 @@ public class Player : MonoBehaviour
         playerInput.Disable();
     }
 
+    public void OnEscapePressed(InputAction.CallbackContext context)
+    {
+        OnEscapeInput.Raise();
+    }
+
     private void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
@@ -75,6 +94,16 @@ public class Player : MonoBehaviour
     {
         mousePosInput = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
         OnCursorInput.Raise(mousePosInput);
+        
+        //Rotate Gun
+        Vector2 aimingDirection = mousePosInput - rb.position;
+        float angle = Mathf.Atan2(aimingDirection.y, aimingDirection.x) * Mathf.Rad2Deg;
+        OnUpdatePointingAngle.Raise(this, angle);
+    }
+
+    private void OnMouseDontMove(InputAction.CallbackContext context)
+    {
+        return;
     }
 
     private void OnAttackPressed(InputAction.CallbackContext context)
@@ -114,12 +143,7 @@ public class Player : MonoBehaviour
                 OnMoveInput.Raise(this, transform.position);
                 lastPositionUpdate = Time.time;
             }
-        }
-
-        //Rotate Gun
-        Vector2 aimingDirection = mousePosInput - rb.position;
-        float angle = Mathf.Atan2(aimingDirection.y, aimingDirection.x) * Mathf.Rad2Deg;
-        OnUpdatePointingAngle.Raise(this, angle);
+        }        
     }
 
     public void UpdateMovementSpeed(float amount)

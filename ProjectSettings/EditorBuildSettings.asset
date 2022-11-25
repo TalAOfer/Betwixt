@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PlayerPicker.unity
+    guid: b8ec7a7567abd0042a74b6abffc649cb
+  - enabled: 1
     path: Assets/Scenes/PinkRoom.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}
