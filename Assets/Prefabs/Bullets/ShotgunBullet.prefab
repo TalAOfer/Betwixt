@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8012928105548152522}
   - component: {fileID: -7639109572666009496}
   m_Layer: 7
-  m_Name: DefaultBullet
+  m_Name: ShotgunBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 379791804, guid: 22064d62367fcd647b7e026c090bfec5, type: 3}
+  m_Sprite: {fileID: -1584080629, guid: 02fb92307be14954face19c344e98886, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -148,7 +148,7 @@ Animator:
   m_GameObject: {fileID: 6154378765110207921}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59835f6ca2713a94583cdeebf719ddff, type: 2}
+  m_Controller: {fileID: 9100000, guid: c7f766efdf10963499e9387217905b5e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

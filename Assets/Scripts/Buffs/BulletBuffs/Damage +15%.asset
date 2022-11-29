@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea5d0fdee860bd49a44484b287657df, type: 3}
-  m_Name: Subi
+  m_Script: {fileID: 11500000, guid: f38d6468ee01ca04b8abaad1b427e379, type: 3}
+  m_Name: Damage +15%
   m_EditorClassIdentifier: 
-  damage: 0
-  shotSpeed: 0
-  range: 0
+  percentage: 15
+  bulletData: {fileID: 11400000, guid: 400dca0090c33fd4384778a3e527b2b8, type: 2}

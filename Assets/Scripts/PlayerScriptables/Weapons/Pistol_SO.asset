@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fe6dff4515a164eae0dab3535ec266, type: 3}
   m_Name: Pistol_SO
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: f5d5dc5a05bb1dd4f80db9c3f75043b7, type: 3}
   sprite: {fileID: 21300000, guid: 63f3ee0f61dc38c4a92b09631e8557c2, type: 3}
   bulletAmount: 1
   spread: 20
   attackPoint: {x: 0.45, y: 0, z: 0}
+  attackDuration: 0.17
+  defaultBullet: {fileID: 11400000, guid: 610bd556aa8688143abb1b82ec62c715, type: 2}
   attackSpeed: 1.4
   overrideAnim: {fileID: 22100000, guid: 1234d66177057d6489f6defb904847ac, type: 2}

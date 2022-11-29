@@ -4,9 +4,12 @@ using UnityEngine;
 
 public static class Tools
 {
+    public static InterimBulletData interimBulletData;
     public static bool didSucceed(int chance)
     {
         int rand = Random.Range(0, 100);
         return (chance > rand);
     }
+
+   
 }

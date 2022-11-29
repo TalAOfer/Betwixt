@@ -6,16 +6,25 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     public GameEvent OnBulletShot;
-    
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject bulletPrefab;
 
-    public Weapon_SO currWeapon; 
+    [SerializeField] private Transform firePoint;
+    private GameObject bulletPrefab;
+
+    [SerializeField] private PlayerChoices playerChoices;
+
+    public Weapon_SO currWeapon;
 
     private float aimingAngle;
 
     private float spreadBuff = 0;
     private int bulletAmountBuff = 0;
+
+    private void Start()
+    {
+        currWeapon = playerChoices.chosenWeapon;
+        bulletPrefab = currWeapon.defaultBullet.bulletPrefab;
+        Debug.Log(bulletPrefab.name);    
+    }
 
     public void UpdateAngle(Component sender, object data)
     {
@@ -24,7 +33,7 @@ public class Shooting : MonoBehaviour
 
     public void Shoot()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Shoot",GetComponent<Transform>().position);  
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Shoot", GetComponent<Transform>().position);
         float angleStep = (currWeapon.spread + spreadBuff) / (currWeapon.bulletAmount + bulletAmountBuff);
         float centeringOffset = ((currWeapon.spread + spreadBuff) / 2) - (angleStep / 2); //offsets every projectile so the spread is centered on the mouse cursor
 

@@ -6,21 +6,28 @@ public class WeaponController : MonoBehaviour
 {
     public GameEvent OnShoot;
     public GameEvent OnChangeAttackStatus;
-    public Weapon_SO currWeapon;
+    private Weapon_SO currWeapon;
+
+    [SerializeField] PlayerChoices playerChoices;
 
     private Animator anim;
 
     private bool canAttack = true;
     private bool isPressingAttack;
     private bool isAttacking = false;
-    [SerializeField] private float attackSpeedBuff = 0;
+    
+    private float attackSpeedBuff = 0;
 
     private float nextAttackTime;
     public float attackDelay = 0.5f;
     private float finishAttackTime;
 
+    private int ammo = 2;
+    private int shotCount = 0;
+
     void Start()
     {
+        currWeapon = playerChoices.chosenWeapon;
         anim = GetComponent<Animator>();
         anim.runtimeAnimatorController = currWeapon.overrideAnim;
         nextAttackTime = Time.time;
@@ -53,13 +60,15 @@ public class WeaponController : MonoBehaviour
 
     private void PerformAttack()
     {
+        shotCount++;
         isAttacking= true;
         OnChangeAttackStatus?.Raise(this, true);
         OnShoot?.Raise();
         canAttack = false;
-        finishAttackTime = Time.time + 0.17f;
+        finishAttackTime = Time.time + currWeapon.attackDuration;
         nextAttackTime = Time.time + (attackDelay / (currWeapon.attackSpeed + attackSpeedBuff) );
     }
+
 
     public void FinishAttack()
     {
@@ -77,4 +86,8 @@ public class WeaponController : MonoBehaviour
         currWeapon = newWeapon;
     }
 
+    private IEnumerator Reload(float reloadTime)
+    {
+        yield return new WaitForSeconds(reloadTime);
+    }
 }

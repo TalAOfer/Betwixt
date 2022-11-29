@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341974d64913d22498eb2a88a4b4c3b7, type: 3}
   m_Name: PlayerChoices
   m_EditorClassIdentifier: 
-  chosenPlayer: {fileID: 11400000, guid: 760fa610a0551ec4cbc85b93a57c0744, type: 2}
-  chosenWeapon: {fileID: 0}
+  chosenPlayer: {fileID: 11400000, guid: 02d19089b79cf314bb0b9b61ac97b51e, type: 2}
+  chosenWeapon: {fileID: 11400000, guid: 210c607b18640fe44a09bae45669b0cd, type: 2}

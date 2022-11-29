@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fe6dff4515a164eae0dab3535ec266, type: 3}
   m_Name: Claw_SO
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
   sprite: {fileID: 21300000, guid: ed8f8978d814c984f96dd4a15103231f, type: 3}
   bulletAmount: 1
   spread: 20
   attackPoint: {x: 0.45, y: 0, z: 0}
+  attackDuration: 0.17
+  defaultBullet: {fileID: 11400000, guid: 8ce8b9a3246fcd3409b8ef3020451234, type: 2}
   attackSpeed: 1
   overrideAnim: {fileID: 22100000, guid: 81f89dca6879a004ca581ea3446912f5, type: 2}

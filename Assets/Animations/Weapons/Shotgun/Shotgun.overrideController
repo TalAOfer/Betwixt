@@ -6,10 +6,10 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Subi
+  m_Name: Shotgun
   m_Controller: {fileID: 9100000, guid: a41b8492cb16b6345a09fe9517a3af39, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 634f757c1e1dd96438467b21cdc9d8e3, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 61365532a406db848876b75c9277882d, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 598cdf694f434704ca35c8d70913d789, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 9880e37711d53d840af7b1474f01751d, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 756c4e1d56700b342a9f698ff9b603de, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 634f757c1e1dd96438467b21cdc9d8e3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 101cb262170560942a3484f643582384, type: 2}

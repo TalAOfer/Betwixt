@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public GameEvent OnEscapeInput;
     public GameEvent OnUpdatePointingAngle;
     public GameEvent OnFlipPlayerSprite;
+    public GameEvent OnTimebend;
 
     public PlayerChoices playerChoices;
     private Player_SO player_so;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     private Vector2 mousePosInput;
 
     private bool isFacingRight = true;
+    private bool isTimebending = false;
     private float lastPositionUpdate;
 
     private Rigidbody2D rb;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     private Animator anim;
 
     [SerializeField] private float moveSpeed;
+    private float timebendMultiplier = 1f;
 
     [SerializeField] Camera cam;
 
@@ -62,6 +65,9 @@ public class Player : MonoBehaviour
         playerInput.Gameplay.Attack.canceled += OnCancelAttackPressed;
 
         playerInput.Gameplay.Escape.performed += OnEscapePressed;
+
+        playerInput.Gameplay.Timebend.performed += OnTimebendStart;
+        playerInput.Gameplay.Timebend.canceled += OnCancelTimebend;
 
     }
 
@@ -116,6 +122,25 @@ public class Player : MonoBehaviour
         OnAttackInput.Raise(this, false);
     }
 
+    private void OnTimebendStart(InputAction.CallbackContext context)
+    {
+        if (!isTimebending)
+        {
+            isTimebending = true;
+            timebendMultiplier = 2;
+            OnTimebend.Raise(this, true);
+        }
+    }
+
+    private void OnCancelTimebend(InputAction.CallbackContext context)
+    {
+        OnTimebend.Raise(this, false);
+        timebendMultiplier = 1;
+        isTimebending = false;
+    }
+
+
+
 
 
     void Update()
@@ -134,7 +159,7 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         //Move
-        rb.velocity = moveInput * moveSpeed;
+        rb.velocity = moveInput * moveSpeed * timebendMultiplier;
 
         if (moveInput != Vector2.zero)
         {

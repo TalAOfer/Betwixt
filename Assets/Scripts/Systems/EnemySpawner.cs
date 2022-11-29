@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int enemy1SpawnRate = 5;
     [SerializeField] private int enemy2SpawnRate = 3;
 
+    private float timer;
     private float lastEnemySpawn;
     private float spawnDelay = 7;
     public List<Transform> enemyBase;
@@ -18,13 +19,17 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-          SpawnEnemies(enemy1, enemy1SpawnRate * 2);
+        timer = 0;
+        SpawnEnemies(enemy1, enemy1SpawnRate * 2);
+          
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time > lastEnemySpawn + spawnDelay)
+        timer += Time.deltaTime;
+
+        if (timer > lastEnemySpawn + spawnDelay)
         {
             SpawnEnemies(enemy1, enemy1SpawnRate);
             if (secondEnemy)
@@ -33,17 +38,17 @@ public class EnemySpawner : MonoBehaviour
             }
         }
 
-        if (Time.time > 30) 
+        if (timer > 30) 
         {
             spawnDelay = 5;
         }
 
-        if (Time.time > 45)
+        if (timer > 45)
         {
             spawnDelay = 3;
         }
 
-        if (Time.time > 60)
+        if (timer > 60)
         {
             secondEnemy = true;
             spawnDelay = 5;

@@ -62,6 +62,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Timebend"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a644247-39db-4239-8024-2f36e58d28df"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -152,6 +161,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea0162ae-c08e-445d-a759-fd3f05ba891e"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Timebend"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -164,6 +184,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Gameplay_MousePos = m_Gameplay.FindAction("MousePos", throwIfNotFound: true);
         m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
         m_Gameplay_Escape = m_Gameplay.FindAction("Escape", throwIfNotFound: true);
+        m_Gameplay_Timebend = m_Gameplay.FindAction("Timebend", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -227,6 +248,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_MousePos;
     private readonly InputAction m_Gameplay_Attack;
     private readonly InputAction m_Gameplay_Escape;
+    private readonly InputAction m_Gameplay_Timebend;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -235,6 +257,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @MousePos => m_Wrapper.m_Gameplay_MousePos;
         public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
         public InputAction @Escape => m_Wrapper.m_Gameplay_Escape;
+        public InputAction @Timebend => m_Wrapper.m_Gameplay_Timebend;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -256,6 +279,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Escape.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
                 @Escape.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
                 @Escape.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEscape;
+                @Timebend.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTimebend;
+                @Timebend.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTimebend;
+                @Timebend.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTimebend;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -272,6 +298,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Escape.started += instance.OnEscape;
                 @Escape.performed += instance.OnEscape;
                 @Escape.canceled += instance.OnEscape;
+                @Timebend.started += instance.OnTimebend;
+                @Timebend.performed += instance.OnTimebend;
+                @Timebend.canceled += instance.OnTimebend;
             }
         }
     }
@@ -282,5 +311,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMousePos(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnTimebend(InputAction.CallbackContext context);
     }
 }
