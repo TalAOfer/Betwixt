@@ -5,18 +5,11 @@ using UnityEngine.UIElements;
 
 public class WeaponPivot : MonoBehaviour
 {
-    private Transform weapon;
-    private Player playerMovementScript;
 
     private bool isFacingRight = true;
     private bool isAttacking = false;
 
     private float weaponAngle;
-    private void Start()
-    {
-        weapon = GetComponentInChildren<Transform>();
-        playerMovementScript = GetComponentInParent<Player>();
-    }
 
     private void FixedUpdate()
     {

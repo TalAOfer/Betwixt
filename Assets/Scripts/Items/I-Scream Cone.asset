@@ -17,4 +17,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cf87807d54cc6bc409172eab735f395f, type: 2}
   itemName: I-Scream Cone
   icon: {fileID: 21300000, guid: 57372a52677052a4f866b31b8c3897ed, type: 3}
-  Description: "Bullet +1 \nBullet Spreads  20% more"
+  Description: "Bullet +1 \nBullet Spreads  30% more"

@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     private Vector3 lastPosition;
     private bool isFacingRight = true;
     private bool didWin = false;
+    private bool isInvincible = false;
 
     private Vector3 playerPosition;
     public bool isDead = false;
@@ -85,8 +86,14 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (!isInvincible)
+        {
+            anim.SetTrigger("Hurt");
+            isInvincible = true;
+            StartCoroutine(HurtCooldown(0.25f));
+        }
+
         currentHealth -= damage;
-        anim.SetTrigger("Hurt");
 
         if (currentHealth < 0)
         {
@@ -117,5 +124,11 @@ public class Enemy : MonoBehaviour
     {
         didWin = true;
         TakeDamage(1000);
+    }
+
+    private IEnumerator HurtCooldown(float hurtCooldown)
+    {
+        yield return new WaitForSeconds(hurtCooldown);
+        isInvincible = false;
     }
 }
